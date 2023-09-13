@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter basename="/">
       <Routes>
         <Route exact path="/" element={<Pages.HomeTestPage />} />
+        <Route path="/typography" element={<Pages.TypographyPage />} />
         <Route path="/components" element={<Pages.ComponentsPage />} />
-        <Route path="/test" element={<Pages.EmptyTestPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

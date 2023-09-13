@@ -1,9 +1,16 @@
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material'
-import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Typography,
+  Box,
+} from "@mui/material";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import * as appActions from '@/store/actions'
-import { TestNavigationPane } from '@/components/TestNavigationPane';
+import * as appActions from "@/store/actions";
+import { TestNavigationPane } from "@/components/TestNavigationPane";
 
 function HomeTestPage() {
   const [age, setAge] = useState(10);
@@ -12,57 +19,81 @@ function HomeTestPage() {
 
   useEffect(() => {
     dispatch(appActions.getLoremIpsumText());
-  }, [dispatch])
+  }, [dispatch]);
 
   const handleMUISelectChange = (event) => {
     const { value } = event.target;
     setAge(value);
     dispatch(appActions.getLoremIpsumText());
-  }
+  };
 
   return (
-    <div> 
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: 800,
+        mx: "auto",
+        display: "grid",
+        gap: 5,
+      }}
+    >
       <div>
-        <h1 >This project uses:</h1>
-        <p>React 18</p>
-        <p>React Router 6</p>
-        <p>Mui 5</p>
-        <p>Mui Icons 5</p>
-        <p>Redux 4</p>
-        <p>Docker</p>
+        <Typography variant="h3" gutterBottom>
+          This project uses:
+        </Typography>
+        <Typography variant="h5">React 18</Typography>
+        <Typography variant="h5">React Router 6</Typography>
+        <Typography variant="h5">Mui 5</Typography>
+        <Typography variant="h5">Mui Icons 5</Typography>
+        <Typography variant="h5">Redux 4</Typography>
+        <Typography variant="h5">Docker</Typography>
       </div>
       <div>
-        <p>Testing Hash Router:</p>
+        <Typography variant="h4" gutterBottom>
+          Testing Hash Router:
+        </Typography>
         <TestNavigationPane />
       </div>
       <div>
-        <p>Testing Mui Components:</p>
-        <p>({MenuItem ? "MUI works!" : "MUI failed!"})</p>
+        <Typography variant="h4" gutterBottom>
+          Testing Mui Components:
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          ({MenuItem ? "MUI works!" : "MUI failed!"})
+        </Typography>
         <div>
-          <div><FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              label="Age"
-              value={age ? age : ""}
-              onChange={handleMUISelectChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl></div>
+          <div>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Age</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Age"
+                value={age ? age : ""}
+                onChange={handleMUISelectChange}
+              >
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
           <p>{age}</p>
         </div>
       </div>
       <div>
-        <p>Testing Redux store:</p>
-        <p>({loremIpsumText ? "Store works!" : "Store failed!"})</p>
-        <p>{loremIpsumText}</p>
+        <Typography variant="h4" gutterBottom>
+          Testing Redux store:
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          ({loremIpsumText ? "Store works!" : "Store failed!"})
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          {loremIpsumText}
+        </Typography>
       </div>
-    </div>
-    )
+    </Box>
+  );
 }
 
-export { HomeTestPage }
+export { HomeTestPage };

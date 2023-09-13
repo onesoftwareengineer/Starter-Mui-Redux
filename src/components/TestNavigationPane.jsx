@@ -6,9 +6,9 @@ function TestNavigationPane() {
 
   return (
     <ButtonGroup variant="contained" aria-label="outlined primary button group">
-      <Button onClick={() => navigate("/components")}>Components</Button>
       <Button onClick={() => navigate("/")}>Home</Button>
-      <Button onClick={() => navigate("/test")}>Test</Button>
+      <Button onClick={() => navigate("/typography")}>Typography</Button>
+      <Button onClick={() => navigate("/components")}>Components</Button>
     </ButtonGroup>
   );
 }

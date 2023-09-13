@@ -1,3 +1,3 @@
 export * from "./HomeTestPage";
-export * from "./EmptyTestPage";
+export * from "./TypographyPage";
 export * from "./ComponentsPage";

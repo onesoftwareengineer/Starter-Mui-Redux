@@ -23,6 +23,8 @@ export const getLoremIpsumText = () => {
       const response = await fetch(loremIpsumApiUrl);
       const data = await response.text();
 
+      console.log('data', data);
+
       if (response?.ok) {
         dispatch({
           type: appActions.SET_LOREM_IPSUM_TEXT,
